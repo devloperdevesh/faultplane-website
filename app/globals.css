@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --fp-bg: #ffffff;
   --fp-surface: #f8fafc;
   --fp-surface-2: #f1f5f9;
@@ -5689,3 +5689,139 @@ code {
   }
 }
 /* END FAULTPLANE CREAM THEME RESTORE V7 */
+
+
+/* FAULTPLANE BUTTON ALIGNMENT CREAM FIX V10 */
+:root {
+  --fp-cream: #f7f2e8;
+  --fp-cream-soft: #fbf8f1;
+  --fp-cream-border: #e6dccb;
+}
+
+html,
+body {
+  background: #f7f2e8 !important;
+}
+
+.site-nav {
+  background: rgba(251, 248, 241, .98) !important;
+  border-bottom: 1px solid #e6dccb !important;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at 78% 35%, rgba(221, 231, 244, .25), transparent 43%),
+    linear-gradient(135deg, #fbf8f1 0%, #f7f2e8 62%, #f3eee3 100%) !important;
+}
+
+.section,
+.section-soft,
+.section-muted {
+  background-color: #f7f2e8;
+}
+
+:where(
+  .button,
+  .nav-start,
+  .nav-github,
+  .text-button,
+  .hero-actions > a,
+  .cta-actions > a,
+  .section-actions > a,
+  .fp-architecture-copy a,
+  .fp-architecture-visual a,
+  .page-cta a
+) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  gap: 9px;
+  min-height: 44px;
+  max-width: 100%;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+:where(
+  .button,
+  .nav-start,
+  .nav-github,
+  .text-button,
+  .hero-actions > a,
+  .cta-actions > a,
+  .section-actions > a,
+  .fp-architecture-copy a,
+  .fp-architecture-visual a,
+  .page-cta a
+) > svg {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.site-nav .nav-shell,
+.site-nav .nav-inner {
+  box-sizing: border-box;
+  max-width: calc(100% - 48px);
+  margin-inline: auto;
+  gap: clamp(12px, 2vw, 28px);
+}
+
+.site-nav .nav-start {
+  flex: 0 0 auto;
+  margin-inline-end: 4px;
+  padding: 10px 15px;
+  white-space: nowrap;
+  gap: 8px;
+}
+
+.site-nav .nav-links {
+  min-width: 0;
+}
+
+.hero-actions,
+.cta-actions,
+.section-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.fp-architecture-copy a,
+.fp-architecture-visual a {
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 14px;
+  line-height: 1.3;
+}
+
+.problem-card,
+.loop-card,
+.feedback-card,
+.dev-card,
+.pricing-card,
+.evidence-card,
+.fp-visual-card,
+.fp-visual-large,
+.teams-list {
+  border-color: #e6dccb;
+}
+
+@media (max-width: 760px) {
+  .site-nav .nav-shell,
+  .site-nav .nav-inner {
+    max-width: calc(100% - 28px);
+    gap: 10px;
+  }
+
+  .site-nav .nav-start {
+    margin-inline-end: 0;
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+}
+/* END FAULTPLANE BUTTON ALIGNMENT CREAM FIX V10 */
