@@ -1,4 +1,4 @@
-﻿import SiteNav from "@/components/SiteNav";
+import SiteNav from "@/components/SiteNav";
 import Footer from "@/components/Footer";
 
 export default function Quickstart() {
@@ -91,7 +91,7 @@ curl http://localhost:8080/health`}</pre>
             rel="noreferrer"
             className="button button-dark"
           >
-            Open GitHub Ã¢â€ â€™
+            Open GitHub -&gt;
           </a>
         </section>
       </main>

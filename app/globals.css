@@ -3972,3 +3972,1448 @@ body { color: #172033; }
 .button svg, .nav-start svg { flex-shrink: 0; }
 @media (max-width: 760px) { .section-actions, .cta-actions, .nav-actions { flex-wrap: wrap; min-width: 0; gap: 10px; } .section-actions > *, .cta-actions > * { min-width: 0; max-width: 100%; } .fp-visual-container, .container { max-width: calc(100% - 28px); } }
 /* END WARM LIGHT CANVAS */
+
+/* FaultPlane UI refinement: stable cards, imagery and controls */
+:root {
+  --fp-ui-border: #dfe4ec;
+  --fp-ui-shadow: 0 8px 28px rgba(20, 32, 54, 0.055);
+  --fp-ui-shadow-hover: 0 18px 42px rgba(20, 32, 54, 0.11);
+}
+
+.feedback-grid,
+.developer-grid,
+.tech-grid,
+.pricing-grid,
+.loss-grid {
+  align-items: stretch;
+}
+
+.feedback-grid,
+.developer-grid,
+.tech-grid,
+.pricing-grid {
+  grid-auto-rows: 1fr;
+}
+
+.feedback-card,
+.dev-card,
+.pricing-card,
+.tech-grid > div {
+  box-sizing: border-box;
+  min-width: 0;
+  border: 1px solid var(--fp-ui-border);
+  border-radius: 18px;
+  box-shadow: var(--fp-ui-shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.feedback-card {
+  min-height: 260px;
+  padding: clamp(22px, 2.4vw, 30px);
+  background: #fff;
+  text-decoration: none;
+}
+
+.feedback-card > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 30px;
+  padding: 0 9px;
+  border: 1px solid #dbe5fb;
+  border-radius: 9px;
+  background: #f1f5ff;
+  color: #2454b8;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.feedback-card h2 {
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+.feedback-card p {
+  line-height: 1.75;
+}
+
+.feedback-card b {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 22px;
+  font-weight: 700;
+}
+
+.feedback-card:hover,
+.dev-card:hover,
+.pricing-card:hover,
+.tech-grid > div:hover {
+  transform: translateY(-3px);
+  border-color: #c5d3ee;
+  box-shadow: var(--fp-ui-shadow-hover);
+}
+
+:where(.button, .nav-start, .nav-github, .page-cta a, .page-cta button) {
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  border-radius: 11px;
+  line-height: 1.25;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+:where(.button, .nav-start, .nav-github, .page-cta a, .page-cta button) svg {
+  flex: 0 0 auto;
+}
+
+:where(.button, .nav-start, .nav-github, .page-cta a, .page-cta button):hover {
+  transform: translateY(-1px);
+}
+
+:where(.fp-visual-card, .fp-architecture-visual, .loss-impact-card, .loss-controls, .loss-result, .pricing-card, .evidence-card, .loop-card) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.fp-image-frame {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fp-image-frame img,
+.fp-visual-card img,
+.fp-architecture-visual img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.site-nav .nav-shell,
+.site-footer .footer-main,
+.site-footer .footer-bottom {
+  min-width: 0;
+}
+
+.site-nav a,
+.site-footer a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .feedback-card {
+    min-height: 220px;
+    padding: 22px;
+  }
+
+  .feedback-card h2 {
+    margin-top: 20px;
+    font-size: 19px;
+  }
+
+  .site-nav .nav-shell {
+    gap: 14px;
+  }
+
+  .nav-links {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions,
+  .cta-actions,
+  .section-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions > *,
+  .cta-actions > *,
+  .section-actions > * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-card,
+  .dev-card,
+  .pricing-card,
+  .tech-grid > div,
+  .button,
+  .nav-start,
+  .nav-github,
+  .page-cta a,
+  .page-cta button {
+    transition: none;
+  }
+
+  .feedback-card:hover,
+  .dev-card:hover,
+  .pricing-card:hover,
+  .tech-grid > div:hover {
+    transform: none;
+  }
+}
+
+/* FAULTPLANE COMPACT LAYOUT V2 */
+
+/* Hero should follow its content, never fill the viewport unnecessarily. */
+.hero {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 54px 0 42px !important;
+}
+
+.hero-inner {
+  align-items: center !important;
+  gap: clamp(24px, 3vw, 42px) !important;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero h1 {
+  margin-top: 14px;
+  margin-bottom: 16px;
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1.04;
+}
+
+.hero-sub {
+  margin-bottom: 22px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  gap: 10px !important;
+  margin-top: 20px !important;
+}
+
+.hero-actions > a {
+  min-height: 44px !important;
+  padding: 11px 17px !important;
+}
+
+.hero-meta {
+  margin-top: 22px !important;
+  gap: 10px 18px !important;
+}
+
+.fp-hero-visual {
+  min-height: 0 !important;
+  height: auto !important;
+  align-self: center;
+}
+
+.fp-hero-image {
+  max-width: 100%;
+}
+
+.fp-hero-image img {
+  max-height: 390px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Reduce oversized vertical gaps across homepage sections. */
+.proof-strip {
+  padding-block: 18px !important;
+}
+
+.section,
+.section-soft,
+.section-muted,
+.fp-section,
+.dark-demo {
+  padding-block: clamp(42px, 5vw, 64px) !important;
+}
+
+.section-heading {
+  margin-bottom: 28px !important;
+}
+
+.feedback-grid,
+.developer-grid,
+.tech-grid,
+.pricing-grid {
+  gap: 18px !important;
+}
+
+.feedback-card,
+.dev-card,
+.pricing-card,
+.tech-grid > div {
+  min-height: 0 !important;
+  padding: 22px !important;
+}
+
+.feedback-card p,
+.dev-card p,
+.pricing-card p {
+  line-height: 1.65;
+}
+
+.fp-image-frame img,
+.fp-visual-card img,
+.fp-architecture-visual img {
+  max-height: 340px;
+  object-fit: contain;
+}
+
+.inner-hero {
+  min-height: 0 !important;
+  padding-block: 48px 30px !important;
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    padding-block: 44px 36px !important;
+  }
+
+  .fp-hero-image img {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-block: 34px 28px !important;
+  }
+
+  .hero-inner {
+    gap: 22px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 8vw, 44px) !important;
+    line-height: 1.08;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .hero-meta {
+    margin-top: 18px !important;
+  }
+
+  .fp-hero-image img {
+    max-height: 260px;
+  }
+
+  .section,
+  .section-soft,
+  .section-muted,
+  .fp-section,
+  .dark-demo {
+    padding-block: 38px !important;
+  }
+
+  .inner-hero {
+    padding-block: 34px 22px !important;
+  }
+
+  .feedback-grid,
+  .developer-grid,
+  .tech-grid,
+  .pricing-grid {
+    gap: 14px !important;
+  }
+}
+
+/* FAULTPLANE HERO CLEANUP V3 */
+.hero {
+  min-height: 0 !important;
+  padding: 42px 0 36px !important;
+}
+
+.hero-inner {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr) !important;
+  align-items: center !important;
+  gap: clamp(24px, 3vw, 40px) !important;
+}
+
+.fp-hero-visual {
+  min-height: 0 !important;
+  height: auto !important;
+  animation: none !important;
+}
+
+.fp-hero-image {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.fp-hero-image img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 360px !important;
+  object-fit: contain !important;
+}
+
+.fp-hero-layer,
+.fp-hero-signal {
+  font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    padding: 36px 0 30px !important;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 26px !important;
+  }
+
+  .fp-hero-image {
+    max-width: 620px !important;
+  }
+
+  .fp-hero-image img {
+    max-height: 340px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 28px 0 24px !important;
+  }
+
+  .hero-inner {
+    gap: 22px !important;
+  }
+
+  .fp-hero-image img {
+    max-height: 260px !important;
+  }
+
+  .fp-hero-layer,
+  .fp-hero-signal {
+    display: none !important;
+  }
+}
+
+/* FAULTPLANE FINAL CTA COMPACT V1 */
+.final-cta {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 28px 0 !important;
+  margin-block: 0 !important;
+}
+
+.final-cta .cta-panel {
+  box-sizing: border-box;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: clamp(28px, 4vw, 44px) clamp(22px, 4vw, 48px) !important;
+  margin-block: 0 !important;
+  display: block;
+}
+
+.final-cta .cta-panel h2 {
+  margin-top: 10px !important;
+  margin-bottom: 12px !important;
+  line-height: 1.12 !important;
+}
+
+.final-cta .cta-panel p {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  line-height: 1.65 !important;
+}
+
+.final-cta .cta-actions {
+  margin-top: 18px !important;
+  gap: 10px !important;
+}
+
+@media (max-width: 760px) {
+  .final-cta {
+    padding: 20px 0 !important;
+  }
+
+  .final-cta .cta-panel {
+    padding: 26px 20px !important;
+    border-radius: 18px !important;
+  }
+}
+
+/* FAULTPLANE DESKTOP WIDTH AND CONTRAST FIX V1 */
+
+/* Keep normal desktop content readable without making it artificially narrow. */
+.container,
+.fp-visual-container {
+  width: min(100% - 48px, 1240px);
+  margin-inline: auto;
+}
+
+.fp-visual-system {
+  width: 100%;
+  padding: clamp(40px, 5vw, 68px) 0 !important;
+}
+
+.fp-visual-container {
+  max-width: 1240px !important;
+}
+
+.fp-visual-heading {
+  margin-bottom: 24px !important;
+}
+
+.fp-visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.fp-visual-card {
+  min-width: 0;
+  height: auto !important;
+  padding: 18px !important;
+}
+
+.fp-visual-card img,
+.fp-image-frame img,
+.fp-architecture-visual img,
+.fp-chip-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.fp-image-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #eef2f7;
+}
+
+.fp-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fp-architecture-visual {
+  margin-top: 18px;
+  min-width: 0;
+}
+
+.fp-chip-image {
+  width: 100%;
+  max-width: 680px;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.fp-chip-image img {
+  max-height: 320px;
+  object-fit: contain;
+}
+
+/* Improve readability of terminal/code panels. */
+.terminal,
+.terminal-card,
+.terminal-window,
+.code-window,
+.code-panel {
+  color: #e5edf8;
+  background: #0b1220;
+}
+
+.terminal pre,
+.terminal-card pre,
+.terminal-window pre,
+.code-window pre,
+.code-panel pre,
+.terminal code,
+.terminal-card code,
+.terminal-window code,
+.code-window code,
+.code-panel code {
+  color: #e5edf8;
+  opacity: 1;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .container,
+  .fp-visual-container {
+    width: min(100% - 32px, 1240px);
+  }
+
+  .fp-visual-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fp-chip-image img {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container,
+  .fp-visual-container {
+    width: min(100% - 24px, 1240px);
+  }
+
+  .fp-visual-card {
+    padding: 14px !important;
+  }
+
+  .fp-visual-system {
+    padding-block: 34px !important;
+  }
+}
+
+/* QUICK FIX: terminal contrast and visual spacing */
+.dark-demo-panel,
+.dark-demo-panel * {
+  color: #e8eef9 !important;
+}
+.dark-demo-panel {
+  background: #0b1220 !important;
+  border-color: #273449 !important;
+}
+.dark-demo-panel pre,
+.dark-demo-panel code {
+  color: #dbeafe !important;
+  opacity: 1 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
+.fp-visual-grid {
+  align-items: start !important;
+  grid-auto-rows: max-content !important;
+  gap: 18px !important;
+}
+.fp-visual-card,
+.fp-visual-large {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: start !important;
+}
+.fp-visual-card-copy {
+  margin-top: 14px !important;
+}
+.fp-visual-system,
+#developers,
+#teams,
+#evidence {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-block: 48px !important;
+}
+/* FAULTPLANE LINEAR CARDS FIX */
+.fp-visual-system {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 44px 0 !important;
+}
+
+.fp-visual-container {
+  width: min(1200px, calc(100% - 40px)) !important;
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+}
+
+.fp-visual-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+}
+
+.fp-visual-side {
+  display: contents !important;
+}
+
+.fp-visual-card,
+.fp-visual-large {
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  align-self: stretch !important;
+  padding: 16px !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+}
+
+.fp-image-frame {
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  border-radius: 10px !important;
+}
+
+.fp-image-frame img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.fp-visual-card-copy {
+  margin-top: 14px !important;
+}
+
+.fp-visual-card-copy h3 {
+  margin: 0 0 8px !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+
+.fp-visual-card-copy p {
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+}
+
+.fp-architecture-visual {
+  height: auto !important;
+  min-height: 0 !important;
+  margin-top: 20px !important;
+}
+
+@media (max-width: 900px) {
+  .fp-visual-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .fp-visual-large {
+    grid-column: 1 / -1;
+  }
+
+  .fp-visual-side {
+    display: contents !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .fp-visual-container {
+    width: calc(100% - 28px) !important;
+  }
+
+  .fp-visual-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .fp-visual-large {
+    grid-column: auto;
+  }
+}
+
+/* FIX: Developer section and actual terminal component */
+#developers {
+  padding-block: 48px !important;
+  min-height: 0 !important;
+}
+
+#developers .developer-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: stretch !important;
+  gap: 24px !important;
+  width: min(1200px, calc(100% - 40px)) !important;
+  margin-inline: auto !important;
+}
+
+#developers .section-heading,
+#developers .code-panel {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#developers .code-panel {
+  align-self: stretch !important;
+  padding: 26px !important;
+  border: 1px solid #26364d !important;
+  border-radius: 18px !important;
+  background: #0b1220 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 12px 32px rgb(15 23 42 / 12%);
+}
+
+#developers .code-panel * {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
+}
+
+#developers .code-panel-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-bottom: 24px !important;
+  color: #94a3b8 !important;
+}
+
+#developers .code-panel pre {
+  margin: 0 !important;
+  color: #e2e8f0 !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.9 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 760px) {
+  #developers .developer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+    width: calc(100% - 28px) !important;
+  }
+
+  #developers .code-panel {
+    padding: 20px !important;
+  }
+}
+
+/* RUNTIME BOUNDARY — focused layout polish */
+.fp-architecture-visual {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+  align-items: center !important;
+  gap: clamp(20px, 3vw, 38px) !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 22px 0 0 !important;
+  padding: clamp(20px, 3vw, 34px) !important;
+  border: 1px solid #dfe5ee !important;
+  border-radius: 20px !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9fc 100%) !important;
+  box-shadow: 0 10px 30px rgb(15 23 42 / 5%) !important;
+  box-sizing: border-box;
+}
+
+.fp-architecture-copy {
+  min-width: 0;
+}
+
+.fp-architecture-copy .section-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #53657e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.fp-architecture-copy h3 {
+  margin: 0 0 12px !important;
+  color: #0b1425 !important;
+  font-size: clamp(24px, 2.4vw, 32px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.035em;
+}
+
+.fp-architecture-copy p {
+  max-width: 48ch;
+  margin: 0 0 20px !important;
+  color: #5b6678 !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.fp-mini-stack {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 7px !important;
+  margin-top: 18px !important;
+}
+
+.fp-mini-stack span {
+  display: flex !important;
+  align-items: center;
+  min-height: 42px;
+  padding: 10px 14px !important;
+  border: 1px solid #dce4ef !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #17243a !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .055em;
+  box-sizing: border-box;
+}
+
+.fp-mini-stack i {
+  display: block;
+  width: 2px;
+  height: 9px;
+  margin: -7px 0 -7px 20px;
+  background: #9db6dc;
+}
+
+.fp-chip-image {
+  width: 100% !important;
+  max-width: 620px !important;
+  min-width: 0 !important;
+  margin: auto !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.fp-chip-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 340px !important;
+  object-fit: contain !important;
+  object-position: center;
+}
+
+/* Architecture CTA: readable, consistent click target */
+.fp-architecture-copy a,
+.fp-architecture-visual a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 0 17px;
+  border: 1px solid #0b1220;
+  border-radius: 10px;
+  background: #0b1220;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.fp-architecture-copy a:hover,
+.fp-architecture-visual a:hover {
+  background: #243653;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 760px) {
+  .fp-architecture-visual {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+    margin-top: 16px !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .fp-architecture-copy h3 {
+    font-size: 25px !important;
+  }
+
+  .fp-chip-image img {
+    max-height: 260px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-architecture-copy a,
+  .fp-architecture-visual a {
+    transition: none;
+  }
+}
+
+/* FAULTPLANE FAILURE LAB READABILITY FIX */
+.lab-shell {
+  width: min(1200px, calc(100% - 40px));
+  margin-inline: auto;
+  padding: clamp(20px, 3vw, 34px);
+  border: 1px solid #e0e5ed;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgb(15 23 42 / 6%);
+  box-sizing: border-box;
+}
+
+.lab-console {
+  overflow: hidden;
+  border: 1px solid #334155 !important;
+  border-radius: 16px !important;
+  background: #0b1220 !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+}
+
+.lab-console .console-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px !important;
+  border-bottom: 1px solid #334155 !important;
+  background: #111c2e !important;
+  color: #cbd5e1 !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.lab-console .console-head span,
+.lab-console .console-body,
+.lab-console .console-body * {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+.lab-console .console-body {
+  min-height: 140px;
+  padding: 18px 20px !important;
+  background: #0b1220 !important;
+  font-family: Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.9 !important;
+  overflow-wrap: anywhere;
+}
+
+.lab-console .console-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 5px 0;
+  color: #e2e8f0 !important;
+}
+
+.lab-console .console-line > span {
+  color: #60a5fa !important;
+  font-weight: 700;
+}
+
+.lab-console .console-line b {
+  color: #86efac !important;
+  font-weight: 700;
+}
+
+.lab-console .console-empty {
+  color: #cbd5e1 !important;
+  line-height: 1.8;
+}
+
+.lab-timeline .lab-step {
+  min-width: 0;
+  border-color: #dbe3ed;
+  border-radius: 14px;
+  background: #fff;
+  color: #17243a;
+}
+
+.lab-timeline .lab-step h3,
+.lab-timeline .lab-step p {
+  color: #334155;
+}
+
+.lab-timeline .lab-step.done {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.lab-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.lab-bottom .text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #d5deea !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #17243a !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease,
+    transform .18s ease;
+}
+
+.lab-bottom .text-button:hover {
+  border-color: #9aafd0 !important;
+  background: #f1f5f9 !important;
+  color: #0b1220 !important;
+  transform: translateY(-1px);
+}
+
+.lab-bottom button:focus-visible,
+.lab-bottom a:focus-visible,
+.lab-shell button:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.lab-shell button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+@media (max-width: 600px) {
+  .lab-shell {
+    width: calc(100% - 24px);
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .lab-console .console-head {
+    padding: 13px 14px !important;
+  }
+
+  .lab-console .console-body {
+    padding: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .lab-bottom {
+    align-items: stretch;
+  }
+
+  .lab-bottom .text-button {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-bottom .text-button {
+    transition: none;
+  }
+
+  .lab-bottom .text-button:hover {
+    transform: none;
+  }
+}
+
+/* FAULTPLANE FAILURE LAB READABILITY V2 */
+.lab-shell {
+  padding: clamp(20px, 3vw, 32px) !important;
+  border-radius: 22px !important;
+}
+
+.lab-console {
+  overflow: hidden !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 15px !important;
+  background: #fff !important;
+}
+
+.console-head {
+  min-height: 48px !important;
+  padding: 0 18px !important;
+  color: #475569 !important;
+  border-bottom: 1px solid #dbe3ee !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+}
+
+.console-body {
+  min-height: 110px !important;
+  padding: 18px 20px !important;
+  color: #334155 !important;
+  background: #f8fafc !important;
+}
+
+.console-line {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin: 0 0 12px !important;
+  color: #334155 !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  overflow-wrap: anywhere !important;
+}
+
+.console-line span {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+.console-line b {
+  color: #0f172a !important;
+  font-weight: 750 !important;
+}
+
+.console-empty {
+  color: #475569 !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+.lab-bottom {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  padding-top: 18px !important;
+}
+
+.lab-bottom .text-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 42px !important;
+  padding: 0 14px !important;
+  border: 1px solid #d5deea !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  color: #17243a !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.lab-bottom .text-button:hover {
+  border-color: #8da9d8 !important;
+  background: #f4f7fc !important;
+}
+
+.lab-bottom button:disabled,
+.lab-top button:disabled {
+  cursor: not-allowed !important;
+  opacity: .55 !important;
+}
+
+@media (max-width: 600px) {
+  .lab-shell {
+    padding: 16px !important;
+  }
+
+  .console-body {
+    padding: 14px !important;
+  }
+
+  .lab-bottom {
+    align-items: stretch !important;
+  }
+
+  .lab-bottom .text-button {
+    max-width: 100% !important;
+  }
+}
+
+/* FAULTPLANE CONSISTENT CREAM THEME V6 */
+:root {
+  --fp-cream: #f5f2ed;
+  --fp-cream-soft: #faf8f5;
+  --fp-card: #ffffff;
+  --fp-ink: #111d32;
+  --fp-muted: #58677b;
+  --fp-border: #e4dfd7;
+  --fp-blue: #2459c4;
+  --fp-shadow: 0 10px 30px rgb(27 39 58 / 5%);
+  --fp-shadow-hover: 0 16px 36px rgb(27 39 58 / 9%);
+}
+
+html {
+  background: var(--fp-cream) !important;
+  color-scheme: light;
+}
+
+body {
+  background: var(--fp-cream) !important;
+  color: var(--fp-ink);
+}
+
+/* Keep ordinary page canvases consistent without recoloring dark panels. */
+main.inner-page,
+.inner-page,
+.fp-visual-system,
+#developers,
+#teams,
+#evidence {
+  background-color: var(--fp-cream) !important;
+  color: var(--fp-ink);
+}
+
+/* Cards share one surface, border and shadow language. */
+.feedback-card,
+.dev-card,
+.pricing-card,
+.fp-visual-card,
+.fp-visual-large,
+.fp-architecture-visual,
+.evidence-card,
+.loop-card {
+  box-sizing: border-box;
+  border-color: var(--fp-border) !important;
+  box-shadow: var(--fp-shadow);
+}
+
+.feedback-card,
+.dev-card,
+.pricing-card,
+.fp-visual-card,
+.fp-visual-large,
+.evidence-card,
+.loop-card {
+  background: var(--fp-card) !important;
+  color: var(--fp-ink);
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+.feedback-card:hover,
+.dev-card:hover,
+.pricing-card:hover,
+.fp-visual-card:hover,
+.fp-visual-large:hover,
+.evidence-card:hover,
+.loop-card:hover {
+  border-color: #c8d5e8 !important;
+  box-shadow: var(--fp-shadow-hover);
+}
+
+/* Predictable typography and readable supporting copy. */
+.feedback-card p,
+.dev-card p,
+.pricing-card p,
+.fp-visual-card-copy p,
+.fp-architecture-copy p,
+.evidence-card p,
+.loop-card p {
+  color: var(--fp-muted);
+  line-height: 1.7;
+}
+
+.feedback-card h2,
+.dev-card h2,
+.pricing-card h2,
+.fp-visual-card-copy h3,
+.fp-architecture-copy h3,
+.evidence-card h3,
+.loop-card h3 {
+  color: var(--fp-ink);
+  line-height: 1.3;
+}
+
+/* Normalize clickable controls without overriding their intended dark/light variants. */
+.feedback-card,
+.fp-visual-card,
+.fp-visual-large {
+  min-width: 0;
+}
+
+.feedback-card:focus-visible,
+.fp-architecture-copy a:focus-visible,
+.fp-architecture-visual a:focus-visible,
+.site-nav a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 3px solid #78a7f7;
+  outline-offset: 3px;
+}
+
+:where(.button, .nav-start, .nav-github, .text-button) {
+  box-sizing: border-box;
+  min-height: 42px;
+  max-width: 100%;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+:where(.button, .nav-start, .nav-github, .text-button):focus-visible {
+  outline: 3px solid #78a7f7;
+  outline-offset: 3px;
+}
+
+/* Image sizing: no accidental stretching or oversized artwork. */
+.fp-visual-card .fp-image-frame,
+.fp-image-frame {
+  overflow: hidden;
+  background: #edf1f6;
+}
+
+.fp-visual-card .fp-image-frame img,
+.fp-image-frame img,
+.fp-chip-image img {
+  max-width: 100%;
+}
+
+/* Preserve explicitly dark hero, terminal and event-stream surfaces. */
+.dark-demo,
+.dark-demo-panel,
+.dark-demo-panel *,
+.lab-console,
+.lab-console *,
+.terminal-window,
+.terminal-window *,
+.code-window,
+.code-window *,
+.code-panel,
+.code-panel *,
+.hero-dark,
+.hero-dark * {
+  color-scheme: dark;
+}
+
+/* Responsive page rhythm. */
+@media (max-width: 760px) {
+  .fp-visual-system {
+    padding-block: 32px !important;
+  }
+
+  .fp-visual-container {
+    width: calc(100% - 28px) !important;
+  }
+
+  .fp-architecture-visual {
+    border-radius: 16px !important;
+  }
+
+  .feedback-card,
+  .fp-visual-card,
+  .fp-visual-large {
+    border-radius: 14px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-card,
+  .dev-card,
+  .pricing-card,
+  .fp-visual-card,
+  .fp-visual-large,
+  .evidence-card,
+  .loop-card {
+    transition: none !important;
+  }
+}

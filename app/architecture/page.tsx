@@ -109,7 +109,7 @@ export default function Architecture() {
           <h2>Want to see the runtime react?</h2>
           <p>Walk through the control loop in the interactive demo.</p>
           <Link href="/failure-lab" className="button button-dark">
-            See it recover â†’
+            See it recover -&gt;
           </Link>
         </section>
       </main>

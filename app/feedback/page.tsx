@@ -30,7 +30,7 @@ export default function Feedback() {
             <span>01</span>
             <h2>Report a problem</h2>
             <p>Share reproduction steps, logs, and the environment.</p>
-            <b>Open GitHub issue â†’</b>
+            <b>Open GitHub issue -&gt;</b>
           </a>
 
           <a
@@ -42,14 +42,14 @@ export default function Feedback() {
             <span>02</span>
             <h2>Request a capability</h2>
             <p>Tell us about the workload or resilience behaviour you need.</p>
-            <b>Request a feature â†’</b>
+            <b>Request a feature -&gt;</b>
           </a>
 
           <Link href="/quickstart" className="feedback-card">
             <span>03</span>
             <h2>Try the runtime</h2>
             <p>Run FaultPlane locally and tell us what you discover.</p>
-            <b>Start building â†’</b>
+            <b>Start building -&gt;</b>
           </Link>
         </section>
       </main>

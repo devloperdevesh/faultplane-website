@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -42,7 +42,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span>Open source infrastructure software.</span>
-        <span>(c) {new Date().getFullYear()} FaultPlane</span>
+        <span>{String.fromCharCode(169)} {new Date().getFullYear()} FaultPlane</span>
       </div>
     </footer>
   );

@@ -178,67 +178,7 @@ export default function Home() {
                   <span />
                   SIGNAL FLOW
                 </div>
-              </div>          <motion.div
-            className="runtime-card"
-            initial={{ opacity: 0, scale: 0.97, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.12 }}
-          >
-            <div className="runtime-top">
-              <div>
-                <span className="runtime-kicker">
-                  FAULTPLANE RUNTIME
-                </span>
-                <strong>resilience-runtime</strong>
               </div>
-
-              <span className="runtime-status">
-                <CircleDot size={12} />
-                OPERATIONAL
-              </span>
-            </div>
-
-            <div className="runtime-flow">
-              {[
-                ["01", "OBSERVE", "Infrastructure signals"],
-                ["02", "DETECT", "Runtime state"],
-                ["03", "RECOVER", "Policy action"],
-                ["04", "ONLINE", "Workload continues"],
-              ].map(([number, title, text], index) => (
-                <div className="runtime-step" key={number}>
-                  <div className="runtime-step-number">{number}</div>
-
-                  <div className="runtime-step-copy">
-                    <strong>{title}</strong>
-                    <span>{text}</span>
-                  </div>
-
-                  {index < 3 && (
-                    <ArrowRight className="runtime-arrow" size={15} />
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="runtime-console">
-              <div>
-                <span className="console-dot" />
-                kernel signal received
-              </div>
-              <div>
-                <span className="console-dot" />
-                runtime state updated
-              </div>
-              <div>
-                <span className="console-dot" />
-                recovery policy evaluated
-              </div>
-              <div>
-                <span className="console-dot" />
-                recovery path completed
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -472,6 +412,7 @@ export default function Home() {
             <div className="fp-chip-image">
               <Image
                 src="/images/faultplane/faultplane-chip.webp"
+                loading="eager"
                 alt="FaultPlane runtime infrastructure visualization"
                 width={1200}
                 height={800}
@@ -803,7 +744,7 @@ go run ./cmd/daemon`}</pre>
 
         <div className="container footer-bottom">
           <span>Open source infrastructure software.</span>
-          <span>Ã‚Â© {new Date().getFullYear()} FaultPlane</span>
+          <span>{String.fromCharCode(169)} {new Date().getFullYear()} FaultPlane</span>
         </div>
       </footer>
     </main>
