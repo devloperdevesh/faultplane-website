@@ -5600,3 +5600,92 @@ main.inner-page,
   }
 }
 /* END FAULTPLANE ACCESSIBILITY AND CARD FIX V1 */
+
+/* FAULTPLANE CREAM THEME RESTORE V7 */
+:root {
+  --fp-cream: #f7f4ee;
+  --fp-cream-soft: #fbf9f5;
+  --fp-cream-border: #e7e0d5;
+  --fp-ink: #172033;
+}
+
+html,
+body {
+  background-color: var(--fp-cream);
+}
+
+body {
+  color: var(--fp-ink);
+}
+
+/* Keep light sections in the same warm cream palette */
+section,
+main > div {
+  scroll-margin-top: 96px;
+}
+
+.fp-visual-system,
+.fp-visual-container,
+.fp-architecture-visual,
+.fp-architecture-copy {
+  background-color: transparent;
+}
+
+.problem-card,
+.loop-card,
+.feedback-card,
+.dev-card,
+.pricing-card,
+.evidence-card,
+.fp-visual-card,
+.fp-visual-large,
+.teams-list {
+  background-color: var(--fp-cream-soft);
+  border-color: var(--fp-cream-border);
+}
+
+/* Cream canvas with readable white surfaces only where needed */
+.teams-list {
+  background: #fffdf9;
+  color: var(--fp-ink);
+  box-shadow: 0 12px 32px rgba(48, 39, 24, .055);
+}
+
+.teams-list > div {
+  color: #263247;
+  border-bottom-color: #eee7dc;
+}
+
+.teams-list > a {
+  background: var(--fp-cream);
+  border-color: #e4dbcd;
+  color: var(--fp-ink);
+}
+
+.teams-list > a:hover {
+  background: #eee7dc;
+  border-color: #d5c8b5;
+}
+
+/* Retain contrast for runtime consoles and dark code panels */
+.lab-console,
+.console-body,
+.console-line,
+pre,
+code {
+  color-scheme: light;
+}
+
+@media (max-width: 760px) {
+  .problem-card,
+  .loop-card,
+  .feedback-card,
+  .dev-card,
+  .pricing-card,
+  .evidence-card,
+  .fp-visual-card,
+  .fp-visual-large {
+    border-radius: 16px;
+  }
+}
+/* END FAULTPLANE CREAM THEME RESTORE V7 */
