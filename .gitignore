@@ -64,3 +64,5 @@ Thumbs.db
 /backup-before-polish-*/
 /backups/
 /FaultPlane-Website-Assets/
+.vercel
+.env*

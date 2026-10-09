@@ -1,5 +1,6 @@
-﻿"use client";
+"use client";
 import Image from "next/image";
+import { LossImpactExperience, PricingRoadmap } from "../components/LossImpactExperience";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -359,13 +360,13 @@ export default function Home() {
           <div className="fp-visual-heading">
             <div>
               <span className="section-kicker">RUNTIME, VISUALIZED</span>
-              <h2>Infrastructure signals become runtime decisions.</h2>
+              <h2>See how infrastructure signals become recovery decisions.</h2>
             </div>
 
             <p>
-              FaultPlane connects low-level signals, runtime state,
-              policy, enforcement, recovery, and telemetry into one
-              observable control loop.
+              Follow the path from infrastructure signals to runtime state,
+              policy decisions and recovery. One control-loop view,
+              with each layer explained.
             </p>
           </div>
 
@@ -374,7 +375,7 @@ export default function Home() {
             <article className="fp-visual-card fp-visual-large">
               <div className="fp-visual-card-top">
                 <span>01 / CONTROL LOOP</span>
-                <span className="fp-visual-live">LIVE SYSTEM</span>
+                <span className="fp-visual-live">CONTROL LOOP</span>
               </div>
 
               <div className="fp-image-frame fp-image-loop">
@@ -388,7 +389,7 @@ export default function Home() {
               </div>
 
               <div className="fp-visual-card-copy">
-                <h3>Signal → State → Policy → Recovery</h3>
+                <h3>From signal to recovery</h3>
                 <p>
                   A runtime control loop designed around explicit state
                   and observable recovery behaviour.
@@ -399,7 +400,7 @@ export default function Home() {
             <article className="fp-visual-card">
               <div className="fp-visual-card-top">
                 <span>02 / RUNTIME</span>
-                <span className="fp-status-pill">OPERATIONAL</span>
+                <span className="fp-status-pill">RUNTIME LAYER</span>
               </div>
 
               <div className="fp-image-frame fp-image-square">
@@ -413,7 +414,7 @@ export default function Home() {
               </div>
 
               <div className="fp-visual-card-copy">
-                <h3>Runtime enforcement</h3>
+                <h3>Runtime control</h3>
                 <p>
                   Recovery logic stays close to the infrastructure
                   conditions that trigger it.
@@ -438,7 +439,7 @@ export default function Home() {
               </div>
 
               <div className="fp-visual-card-copy">
-                <h3>Infrastructure-aware</h3>
+                <h3>Infrastructure signals</h3>
                 <p>
                   Linux, eBPF, runtime events and telemetry feed the
                   resilience loop.
@@ -610,6 +611,8 @@ export default function Home() {
         </div>
       </section>
 
+      <LossImpactExperience />
+
       <section className="section section-muted" id="evidence">
         <div className="container">
           <div className="section-heading">
@@ -635,6 +638,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PricingRoadmap />
 
       <section className="section" id="developers">
         <div className="container developer-grid">
@@ -804,11 +809,3 @@ go run ./cmd/daemon`}</pre>
     </main>
   );
 }
-
-
-
-
-
-
-
-

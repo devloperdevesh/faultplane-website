@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://faultplane-website.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "FaultPlane — Infrastructure Resilience for AI Workloads",
+    default: "FaultPlane â€” Infrastructure Resilience for AI Workloads",
     template: "%s | FaultPlane",
   },
 
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "FaultPlane",
-    title: "FaultPlane — Infrastructure Resilience for AI Workloads",
+    title: "FaultPlane â€” Infrastructure Resilience for AI Workloads",
     description:
       "Detect infrastructure failures, turn them into runtime state, and apply recovery policies before long-running AI workloads are disrupted.",
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "FaultPlane — Infrastructure Resilience for AI Workloads",
+    title: "FaultPlane â€” Infrastructure Resilience for AI Workloads",
     description:
       "Runtime resilience for long-running AI workloads.",
     images: ["/logo/logo.png"],
