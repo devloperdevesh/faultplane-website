@@ -149,57 +149,81 @@ export function PricingRoadmap() {
       <div className="container">
         <div className="section-heading">
           <span className="section-kicker">PRICING & ROADMAP</span>
-          <h2>Open source first. Commercial layers when they're ready.</h2>
+          <h2>Open source today. Commercial options shaped by real demand.</h2>
           <p>
-            Start with the public runtime. Future hosted and enterprise
-            offerings are planned, not currently available for purchase.
+            Start with the public repository. Hosted and enterprise offerings
+            are proposed roadmap items, not currently available paid products.
           </p>
         </div>
 
         <div className="pricing-grid">
           <article className="pricing-card pricing-featured">
             <span className="pricing-status">AVAILABLE</span>
-            <h3>Open-source runtime</h3>
+            <h3>Self-Hosted Core</h3>
             <p className="pricing-price">Free</p>
-            <p>Inspect the code, run it yourself, and contribute in public.</p>
+            <p>
+              Explore the open-source project and evaluate it in your own
+              development environment.
+            </p>
             <ul>
               <li>Public source repository</li>
               <li>Self-hosted evaluation</li>
-              <li>Community feedback and contributions</li>
+              <li>Community contributions</li>
+              <li>No paid plan required to view the code</li>
             </ul>
-            <a className="button button-dark" href="https://github.com/devloperdevesh/FaultPlane" target="_blank" rel="noreferrer">
+            <a
+              className="button button-dark"
+              href="https://github.com/devloperdevesh/FaultPlane"
+              target="_blank"
+              rel="noreferrer"
+            >
               View on GitHub <ArrowRight size={15} />
             </a>
           </article>
 
           <article className="pricing-card">
-            <span className="pricing-status planned">PLANNED</span>
-            <h3>Managed cloud</h3>
-            <p className="pricing-price">Coming later</p>
-            <p>A potential hosted experience for teams that want less operational overhead.</p>
+            <span className="pricing-status planned">PROPOSED</span>
+            <h3>Managed Cloud Hub</h3>
+            <p className="pricing-price">Planned</p>
+            <p>
+              A potential hosted control and management experience for teams
+              seeking simpler operations.
+            </p>
             <ul>
-              <li>Hosted management experience</li>
-              <li>Deployment and upgrade workflows</li>
-              <li>Scope to be validated with users</li>
+              <li>Hosted management workflow — proposed</li>
+              <li>Deployment and upgrade experience — to be validated</li>
+              <li>Usage-based billing — under consideration</li>
+              <li>No published rates or live service yet</li>
             </ul>
-            <Link className="pricing-text-link" href="/feedback">Share your requirements <ArrowRight size={15} /></Link>
+            <Link className="pricing-text-link" href="/feedback">
+              Help shape the roadmap <ArrowRight size={15} />
+            </Link>
           </article>
 
           <article className="pricing-card">
-            <span className="pricing-status planned">PLANNED</span>
+            <span className="pricing-status planned">PILOT DISCUSSION</span>
             <h3>Enterprise</h3>
-            <p className="pricing-price">Let's validate</p>
-            <p>Potential organization-level controls and support, guided by real team needs.</p>
+            <p className="pricing-price">Discuss a pilot</p>
+            <p>
+              Explore potential organization-level requirements directly with
+              the project team. Scope depends on validation and feasibility.
+            </p>
             <ul>
-              <li>Enterprise workflows to be validated</li>
-              <li>Integrations based on demand</li>
-              <li>No current SLA or feature promise</li>
+              <li>Use-case and architecture discussion</li>
+              <li>Potential integrations assessed case by case</li>
+              <li>Security and operational requirements to be reviewed</li>
+              <li>No current SLA or compliance certification claimed</li>
             </ul>
-            <Link className="pricing-text-link" href="/commercial">Explore the roadmap <ArrowRight size={15} /></Link>
+            <Link className="pricing-text-link" href="/commercial">
+              Explore commercial roadmap <ArrowRight size={15} />
+            </Link>
           </article>
         </div>
+
         <p className="pricing-footnote">
-          No paid plans are being advertised as available. Roadmap items may change as requirements are validated.
+          Transparency note: only the public repository is presented as
+          available. Managed cloud features, usage pricing and enterprise
+          capabilities remain proposed and may change as the project evolves.
         </p>
       </div>
     </section>

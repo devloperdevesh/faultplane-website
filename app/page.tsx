@@ -52,11 +52,11 @@ const runtimeLayers = [
 ];
 
 const evidenceItems = [
-  "Failure detection latency",
-  "Recovery latency",
-  "CPU overhead",
-  "Memory overhead",
-  "Recovery success rate",
+  { label: "Failure Detection Latency", value: "Target TBD", note: "Benchmark validation pending" },
+  { label: "Transport Recovery Duration", value: "Target TBD", note: "Benchmark validation pending" },
+  { label: "Host CPU Overhead", value: "Target TBD", note: "Benchmark validation pending" },
+  { label: "Memory Footprint", value: "Target TBD", note: "Benchmark validation pending" },
+  { label: "Recovery Success Rate", value: "Target TBD", note: "Benchmark validation pending" },
 ];
 
 export default function Home() {
@@ -99,25 +99,27 @@ export default function Home() {
           >
             <div className="eyebrow">
               <span className="eyebrow-dot" />
-              Infrastructure resilience for AI workloads
+              PRODUCTION SAFETY / LINUX RUNTIME RESILIENCE
             </div>
 
             <h1>
-              Keep AI workloads running when infrastructure changes.
+              Stop Wasting GPU Tokens. Prevent Long-Running AI Workloads From Crashing.
             </h1>
 
             <p className="hero-sub">
-              FaultPlane detects infrastructure problems, turns them into
-              runtime state, and applies explicit recovery policies before they
-              disrupt long-running workloads.
-            </p>
+  FaultPlane explores runtime resilience for long-running AI workloads.
+  Its architecture focuses on Go-based runtime control, Linux infrastructure
+  signals, eBPF integration, and configurable recovery policies at the
+  transport boundary. Inspect the implementation and validate recovery
+  behaviour with controlled failure scenarios and reproducible benchmarks.
+</p>
 
             <div className="hero-actions">
               <Link
                 className="button button-dark"
                 href="/failure-lab"
               >
-                See it work
+                Open Failure Lab
                 <ArrowRight size={16} />
               </Link>
 
@@ -125,12 +127,38 @@ export default function Home() {
                 className="button button-light"
                 href="/quickstart"
               >
-                Start building
+                Read the Quickstart
                 <ChevronRight size={16} />
               </Link>
             </div>
 
-            <div className="hero-meta">
+            <div
+  className="fp-terminal-panel"
+  style={{
+    marginTop: "24px",
+    padding: "18px 20px",
+    borderRadius: "12px",
+    border: "1px solid rgba(148, 163, 184, 0.24)",
+    background: "rgba(8, 15, 28, 0.92)",
+    color: "#e5edf7",
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+    fontSize: "13px",
+    lineHeight: 1.8,
+    maxWidth: "560px",
+    overflowWrap: "anywhere"
+  }}
+>
+  <div style={{ marginBottom: "10px", opacity: 0.7 }}>
+    FAULTPLANE / QUICKSTART
+  </div>
+  <div style={{ color: "#86efac" }}>$ git clone https://github.com/devloperdevesh/FaultPlane.git</div>
+  <div>$ cd FaultPlane</div>
+  <div>$ go build ./...</div>
+  <Link href="/quickstart" style={{ display: "inline-flex", gap: "7px", marginTop: "12px", color: "#86efac", textDecoration: "none" }}>
+    Open Quickstart <ArrowRight size={14} />
+  </Link>
+</div>
+<div className="hero-meta">
               <span>Open source</span>
               <i />
               <span>Linux</span>
@@ -178,6 +206,27 @@ export default function Home() {
                   <span />
                   SIGNAL FLOW
                 </div>
+<div
+  className="fp-runtime-telemetry"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: "10px",
+    marginTop: "14px",
+    fontSize: "12px"
+  }}
+>
+  <div style={{ padding: "12px", border: "1px solid rgba(148, 163, 184, 0.24)", borderRadius: "10px" }}>
+    <div style={{ opacity: 0.7 }}>FAILOVER LATENCY</div>
+    <strong style={{ display: "block", marginTop: "5px" }}>Benchmark pending</strong>
+    <small style={{ opacity: 0.65 }}>Measurement not yet published</small>
+  </div>
+  <div style={{ padding: "12px", border: "1px solid rgba(148, 163, 184, 0.24)", borderRadius: "10px" }}>
+    <div style={{ opacity: 0.7 }}>CPU OVERHEAD</div>
+    <strong style={{ display: "block", marginTop: "5px" }}>Benchmark pending</strong>
+    <small style={{ opacity: 0.65 }}>Measurement not yet published</small>
+  </div>
+</div>
               </div>
         </div>
       </section>
@@ -570,10 +619,11 @@ export default function Home() {
 
           <div className="evidence-grid">
             {evidenceItems.map((item, index) => (
-              <article className="evidence-card" key={item}>
+              <article className="evidence-card" key={item.label}>
                 <span>0{index + 1}</span>
-                <strong>{item}</strong>
-                <small>Measurement pending</small>
+                <strong>{item.label}</strong>
+                <h3>{item.value}</h3>
+                <small>{item.note}</small>
               </article>
             ))}
           </div>
